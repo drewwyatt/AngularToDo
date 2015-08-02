@@ -2,7 +2,7 @@
 Sample AngularJS To-Do application using Typescript
 
 ## Setup
-run: `npm install`
+`npm install`
 
 ## Launching the app
-run: `gulp`
+`gulp`
