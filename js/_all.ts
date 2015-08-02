@@ -2,3 +2,4 @@
 /// <reference path="lib/jquery.d.ts" />
 /// <reference path="app/app.controller.ts" />
 /// <reference path="app/app.service.ts" />
+/// <reference path="app/app.service.interface.ts" />

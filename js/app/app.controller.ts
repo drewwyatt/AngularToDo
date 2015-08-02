@@ -5,7 +5,7 @@ module app {
 		
 		static $inject = ['ToDoService'];
 		
-		constructor(ToDoService) {
+		constructor(ToDoService: IToDoService) {
 			this.myTestVar = ToDoService.getMessage();
 		}
 	}
