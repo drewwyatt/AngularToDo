@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var sass = require('gulp-sass');
 var ts = require('gulp-typescript');
 var watch = require('gulp-watch');
 
@@ -6,6 +7,13 @@ gulp.task('default', ['watch']);
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.ts', ['compile-typescript']);
+  gulp.watch('src/**/*.scss', ['compile-sass']);
+});
+
+gulp.task('compile-sass', function() {
+  gulp.src('src/scss/main.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('www/css'));
 });
 
 gulp.task('compile-typescript', function() {
