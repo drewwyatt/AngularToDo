@@ -1,4 +1,4 @@
-/// <reference path="../_all" />
+/// <reference path="_all" />
 
 module app {
 	angular.module('todo', [])

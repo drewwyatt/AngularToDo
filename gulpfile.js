@@ -1,5 +1,11 @@
 var gulp = require('gulp');
+var ts = require('gulp-typescript');
 
 gulp.task('default', function() {
-  // place code for your default task here
+  var tsResult = gulp.src('src/**/*.ts')
+    .pipe(ts({
+        noImplicitAny: true,
+        out: 'app.js'
+      }));
+  return tsResult.js.pipe(gulp.dest('www'));
 });
