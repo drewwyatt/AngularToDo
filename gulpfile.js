@@ -2,8 +2,9 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var ts = require('gulp-typescript');
 var watch = require('gulp-watch');
+var webserver = require('gulp-webserver');
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'webserver']);
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.ts', ['compile-typescript']);
@@ -23,4 +24,13 @@ gulp.task('compile-typescript', function() {
         out: 'app.js'
       }));
   return tsResult.js.pipe(gulp.dest('www'));
+});
+
+gulp.task('webserver', function() {
+  gulp.src('www')
+    .pipe(webserver({
+      directoryListing: false,
+      fallback: 'index.html',
+      open: true
+    }));
 });
