@@ -1,6 +1,6 @@
 /// <reference path="_all.ts" />
 module app {
-	export function config($stateProvider, $urlRouterProvider) {
+	export function config($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) {
 		$urlRouterProvider.otherwise("/todo");
 		$stateProvider
 			.state('todo', {
