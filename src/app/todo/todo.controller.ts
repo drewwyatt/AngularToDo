@@ -2,13 +2,13 @@
 module app.todo {
 	export class ToDoController {
 		public myTestVar: string;
-		public toDoItems: Array<string>;
+		public toDoItems: Array<IToDo>;
 		
 		static $inject = ['ToDoService'];
 		
 		constructor(ToDoService: IToDoService) {
 			this.myTestVar = ToDoService.getMessage();
-			this.toDoItems = ['one', 'two', 'three', 'four', 'five'];
+			this.toDoItems = [new ToDo('one'), new ToDo('two'), new ToDo('three'), new ToDo('four'), new ToDo('five')];
 		}
 	}
 }

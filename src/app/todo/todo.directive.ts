@@ -1,15 +1,15 @@
 /// <reference path="../_all.ts" />
 module app.todo {
         export class ToDoItem implements ng.IDirective {
-                public link: (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => void;
-                public template = '<div>Boom Boom Pow</div>';
-                public scope = {};
+                public templateUrl = 'assets/html/todo.directive.template.html';
+                public scope = { item: '=' };
+                public link: (scope: IToDoItemDirectiveScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => void; 
 
                 constructor(/*list of dependencies*/) {
                         // It's important to add `link` to the prototype or you will end up with state issues.
                         // See http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/#comment-2111298002 for more information.
-                        ToDoItem.prototype.link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
-                                /*handle all your linking requirements here*/
+                        ToDoItem.prototype.link = (scope: IToDoItemDirectiveScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
+                                console.log(scope.item);
                         };
                 }
 
@@ -18,9 +18,9 @@ module app.todo {
                                 return new ToDoItem(/*list of dependencies*/);
                         };
 
-                        directive['$inject'] = [];
+                        directive.$inject = [];
 
-                        return directive();
+                        return directive;
                 }
         }
 }
