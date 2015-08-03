@@ -1,14 +1,26 @@
 var gulp = require('gulp');
+var bowerSrc = require('gulp-bower-src');
+var concat = require('gulp-concat');
+var gulpFilter = require('gulp-filter');
 var sass = require('gulp-sass');
 var ts = require('gulp-typescript');
 var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
 
-gulp.task('default', ['watch', 'webserver']);
+var filter = gulpFilter('**/*.min.js');
+
+gulp.task('default', ['copy-bower', 'watch', 'webserver']);
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.ts', ['compile-typescript']);
   gulp.watch('src/**/*.scss', ['compile-sass']);
+});
+
+gulp.task('copy-bower', function() {
+  bowerSrc()
+        .pipe(filter)
+        .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('www/lib'));
 });
 
 gulp.task('compile-sass', function() {

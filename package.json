@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/anwyatt/AngularToDo",
   "devDependencies": {
+    "bower": "^1.4.1",
     "gulp": "^3.9.0",
+    "gulp-bower-src": "^0.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^3.0.0",
     "gulp-sass": "^2.0.4",
     "gulp-typescript": "^2.8.0",
     "gulp-watch": "^4.3.4",
