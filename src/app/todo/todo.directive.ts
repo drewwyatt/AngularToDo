@@ -9,7 +9,7 @@ module app.todo {
                         // It's important to add `link` to the prototype or you will end up with state issues.
                         // See http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/#comment-2111298002 for more information.
                         ToDoItem.prototype.link = (scope: IToDoItemDirectiveScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
-                                console.log(scope.item);
+
                         };
                 }
 

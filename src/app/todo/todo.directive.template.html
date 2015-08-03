@@ -1,5 +1,5 @@
-<div>
-	<label>
+<div class="todo-item">
+	<label ng-class="{done: item.done}">
 		<input ng-model="item.done" type="checkbox" />
 		{{ item.text }}
 	</label>
