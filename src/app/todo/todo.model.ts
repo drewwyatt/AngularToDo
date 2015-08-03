@@ -1,10 +1,12 @@
 /// <reference path="../_all.ts" />
 module app.todo {
 	export class ToDo {
+		public id: number;
 		public text: string;
 		public done: boolean = false;
 		
-		constructor(txt:string) {
+		constructor(num: number, txt:string) {
+			this.id = num;
 			this.text = txt;
 		}
 		

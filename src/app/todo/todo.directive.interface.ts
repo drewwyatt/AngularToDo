@@ -2,5 +2,6 @@
 module app.todo {
         export interface IToDoItemDirectiveScope extends ng.IScope {
 			item: IToDo;
+			delete (): void;
 		}
 }

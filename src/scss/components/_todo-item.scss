@@ -1,6 +1,14 @@
 .todo-item {
-	.done {
+	.delete-button {
+		visibility: hidden;
+	}
+	
+	&.done {
 		color: #999;
 		text-decoration: line-through;
+		
+		.delete-button {
+			visibility: visible;	
+		}
 	}
 }

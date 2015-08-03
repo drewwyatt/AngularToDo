@@ -1,6 +1,7 @@
-<div class="todo-item">
-	<label ng-class="{done: item.done}">
+<div class="todo-item" ng-class="{done: item.done}">
+	<label>
 		<input ng-model="item.done" type="checkbox" />
 		{{ item.text }}
 	</label>
+	<button class="delete-button"">Delete</button>
 </div>

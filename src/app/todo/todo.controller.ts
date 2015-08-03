@@ -6,12 +6,21 @@ module app.todo {
 		
 		private _ToDoList: IToDoList;
 		
-		static $inject = ['ToDoList'];
+		static $inject = ['$scope', 'ToDoList'];
 		
-		constructor(ToDoList: IToDoList) {
+		constructor($scope: ng.IScope, ToDoList: IToDoList) {
 			this.newToDoText = '';
 			this.toDoItems = ToDoList.create();
 			this._ToDoList = ToDoList;
+			var self = this;
+			
+			$scope.$on('delete', function(event, id) {
+				if(id !== undefined && id > 0) {
+					$scope.$apply(function() {
+						self.toDoItems = self._ToDoList.removeItem(id, self.toDoItems);
+					});
+				}
+			});
 		}
 		
 		public addNewToDo():void {
