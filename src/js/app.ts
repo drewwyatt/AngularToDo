@@ -2,8 +2,8 @@
 
 module app {
 	angular.module('todo', ['ui.router'])
-		.controller('ToDoController', ToDoController)
-		.directive('toDoItem', ToDoItem.factory)
-		.service('ToDoService', ToDoService)
+		.controller('ToDoController', todo.ToDoController)
+		.directive('toDoItem', todo.ToDoItem.factory)
+		.service('ToDoService', todo.ToDoService)
 		.config(config);
 }

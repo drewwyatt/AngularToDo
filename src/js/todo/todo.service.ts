@@ -1,6 +1,6 @@
 /// <reference path="../lib/angular.d.ts" />
 
-module app {
+module app.todo {
 	export class ToDoService {
 		constructor() {
 			

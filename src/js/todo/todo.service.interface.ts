@@ -1,5 +1,5 @@
 /// <reference path="../_all.ts" />
-module app {
+module app.todo {
 	export interface IToDoService {
 		getMessage (): string;
 	}

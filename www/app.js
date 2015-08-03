@@ -15,52 +15,61 @@ var app;
 /// <reference path="../_all.ts" />
 var app;
 (function (app) {
-    var ToDoController = (function () {
-        function ToDoController(ToDoService) {
-            this.myTestVar = ToDoService.getMessage();
-            this.toDoItems = ['one', 'two', 'three', 'four', 'five'];
-        }
-        ToDoController.$inject = ['ToDoService'];
-        return ToDoController;
-    })();
-    app.ToDoController = ToDoController;
+    var todo;
+    (function (todo) {
+        var ToDoController = (function () {
+            function ToDoController(ToDoService) {
+                this.myTestVar = ToDoService.getMessage();
+                this.toDoItems = ['one', 'two', 'three', 'four', 'five'];
+            }
+            ToDoController.$inject = ['ToDoService'];
+            return ToDoController;
+        })();
+        todo.ToDoController = ToDoController;
+    })(todo = app.todo || (app.todo = {}));
 })(app || (app = {}));
 /// <reference path="../_all.ts" />
 var app;
 (function (app) {
-    var ToDoItem = (function () {
-        function ToDoItem() {
-            this.template = '<div>Boom Boom Pow</div>';
-            this.scope = {};
-            // It's important to add `link` to the prototype or you will end up with state issues.
-            // See http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/#comment-2111298002 for more information.
-            ToDoItem.prototype.link = function (scope, element, attrs) {
-                /*handle all your linking requirements here*/
+    var todo;
+    (function (todo) {
+        var ToDoItem = (function () {
+            function ToDoItem() {
+                this.template = '<div>Boom Boom Pow</div>';
+                this.scope = {};
+                // It's important to add `link` to the prototype or you will end up with state issues.
+                // See http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/#comment-2111298002 for more information.
+                ToDoItem.prototype.link = function (scope, element, attrs) {
+                    /*handle all your linking requirements here*/
+                };
+            }
+            ToDoItem.factory = function () {
+                var directive = function () {
+                    return new ToDoItem();
+                };
+                directive['$inject'] = [];
+                return directive();
             };
-        }
-        ToDoItem.factory = function () {
-            var directive = function () {
-                return new ToDoItem();
-            };
-            directive['$inject'] = [];
-            return directive();
-        };
-        return ToDoItem;
-    })();
-    app.ToDoItem = ToDoItem;
+            return ToDoItem;
+        })();
+        todo.ToDoItem = ToDoItem;
+    })(todo = app.todo || (app.todo = {}));
 })(app || (app = {}));
 /// <reference path="../lib/angular.d.ts" />
 var app;
 (function (app) {
-    var ToDoService = (function () {
-        function ToDoService() {
-        }
-        ToDoService.prototype.getMessage = function () {
-            return 'This is from the service';
-        };
-        return ToDoService;
-    })();
-    app.ToDoService = ToDoService;
+    var todo;
+    (function (todo) {
+        var ToDoService = (function () {
+            function ToDoService() {
+            }
+            ToDoService.prototype.getMessage = function () {
+                return 'This is from the service';
+            };
+            return ToDoService;
+        })();
+        todo.ToDoService = ToDoService;
+    })(todo = app.todo || (app.todo = {}));
 })(app || (app = {}));
 /// <reference path="../_all.ts" />
 /// <reference path="lib/angular.d.ts" />
@@ -75,8 +84,8 @@ var app;
 var app;
 (function (app) {
     angular.module('todo', ['ui.router'])
-        .controller('ToDoController', app.ToDoController)
-        .directive('toDoItem', app.ToDoItem.factory)
-        .service('ToDoService', app.ToDoService)
+        .controller('ToDoController', app.todo.ToDoController)
+        .directive('toDoItem', app.todo.ToDoItem.factory)
+        .service('ToDoService', app.todo.ToDoService)
         .config(app.config);
 })(app || (app = {}));

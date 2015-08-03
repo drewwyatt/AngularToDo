@@ -1,5 +1,5 @@
 /// <reference path="../_all.ts" />
-module app {
+module app.todo {
         export class ToDoItem implements ng.IDirective {
                 public link: (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => void;
                 public template = '<div>Boom Boom Pow</div>';
