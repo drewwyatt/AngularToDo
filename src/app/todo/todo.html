@@ -1,6 +1,6 @@
 <section ng-controller="ToDoController as vm">
-	<h1>Hello world!</h1>
-	<p>{{ vm.myTestVar }}</p>
+	<input type="text" ng-model="vm.newToDoText" />
+	<button ng-click="vm.addNewToDo()">Add</button>
 	<ul>
 		<li ng-repeat="item in vm.toDoItems"><to-do-item item="item"></to-do-item></li>
 	</ul>

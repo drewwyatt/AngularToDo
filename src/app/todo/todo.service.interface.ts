@@ -1,6 +1,7 @@
 /// <reference path="../_all.ts" />
 module app.todo {
-	export interface IToDoService {
-		getMessage (): string;
+	export interface IToDoList {
+		create (): Array<ToDo>;
+		addItem (text:string): IToDo;
 	}
 }

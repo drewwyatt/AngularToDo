@@ -1,14 +1,24 @@
 /// <reference path="../_all.ts" />
 module app.todo {
 	export class ToDoController {
-		public myTestVar: string;
+		public newToDoText: string;
 		public toDoItems: Array<IToDo>;
 		
-		static $inject = ['ToDoService'];
+		private _ToDoList: IToDoList;
 		
-		constructor(ToDoService: IToDoService) {
-			this.myTestVar = ToDoService.getMessage();
-			this.toDoItems = [new ToDo('one'), new ToDo('two'), new ToDo('three'), new ToDo('four'), new ToDo('five')];
+		static $inject = ['ToDoList'];
+		
+		constructor(ToDoList: IToDoList) {
+			this.newToDoText = '';
+			this.toDoItems = ToDoList.create();
+			this._ToDoList = ToDoList;
+		}
+		
+		public addNewToDo():void {
+			if(this.newToDoText.length > 0) {
+				this.toDoItems.push(this._ToDoList.addItem(this.newToDoText));
+				this.newToDoText = '';
+			}
 		}
 	}
 }
