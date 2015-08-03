@@ -10,7 +10,7 @@ var webserver = require('gulp-webserver');
 
 var filter = gulpFilter('**/*.min.js');
 
-gulp.task('default', ['copy-bower', 'watch', 'webserver']);
+gulp.task('default', ['copy-bower', 'compile-typescript', 'compile-sass', 'copy-html', 'watch', 'webserver']);
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.ts', ['compile-typescript']);
@@ -41,6 +41,9 @@ gulp.task('compile-typescript', function() {
 });
 
 gulp.task('copy-html', function() {
+  gulp.src(['src/index.html'])
+    .pipe(gulp.dest('www'));
+  
   gulp.src(['src/**/*.html', '!src/index.html'])
     .pipe(flatten())
     .pipe(gulp.dest('www/assets/html'));
