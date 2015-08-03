@@ -5,7 +5,7 @@ module app {
 		$stateProvider
 			.state('todo', {
 				url: "/todo",
-				templateUrl: "todo.html"
+				templateUrl: "assets/html/todo.html"
 			});
 	};
 }
