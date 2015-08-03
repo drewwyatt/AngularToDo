@@ -3,6 +3,7 @@ var bowerSrc = require('gulp-bower-src');
 var concat = require('gulp-concat');
 var flatten = require('gulp-flatten');
 var gulpFilter = require('gulp-filter');
+var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var ts = require('gulp-typescript');
 var watch = require('gulp-watch');
@@ -10,7 +11,7 @@ var webserver = require('gulp-webserver');
 
 var filter = gulpFilter('**/*.min.js');
 
-gulp.task('default', ['copy-bower', 'compile-typescript', 'compile-sass', 'copy-html', 'watch', 'webserver']);
+gulp.task('default', ['startup']);
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.ts', ['compile-typescript']);
@@ -47,6 +48,14 @@ gulp.task('copy-html', function() {
   gulp.src(['src/**/*.html', '!src/index.html'])
     .pipe(flatten())
     .pipe(gulp.dest('www/assets/html'));
+});
+
+gulp.task('startup', function() {
+  runSequence(
+		['copy-bower', 'compile-typescript', 'compile-sass', 'copy-html'],
+		'watch',
+		'webserver'
+	);
 });
 
 gulp.task('webserver', function() {
