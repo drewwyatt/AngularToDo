@@ -1,0 +1,6 @@
+<section ng-controller="ToDoController as vm">
+	<p>{{ vm.myTestVar }}</p>
+	<ul>
+		<li ng-repeat="item in vm.toDoItems"><to-do-item></to-do-item></li>
+	</ul>
+</section>

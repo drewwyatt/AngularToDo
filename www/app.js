@@ -1,3 +1,17 @@
+/// <reference path="_all.ts" />
+var app;
+(function (app) {
+    function config($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/todo");
+        $stateProvider
+            .state('todo', {
+            url: "/todo",
+            templateUrl: "todo.html"
+        });
+    }
+    app.config = config;
+    ;
+})(app || (app = {}));
 /// <reference path="../_all.ts" />
 var app;
 (function (app) {
@@ -50,7 +64,9 @@ var app;
 })(app || (app = {}));
 /// <reference path="../_all.ts" />
 /// <reference path="lib/angular.d.ts" />
+/// <reference path="lib/angular-ui-router.d.ts" />
 /// <reference path="lib/jquery.d.ts" />
+/// <reference path="app.config.ts" />
 /// <reference path="todo/todo.controller.ts" />
 /// <reference path="todo/todo.directive.ts" />
 /// <reference path="todo/todo.service.ts" />
@@ -58,8 +74,9 @@ var app;
 /// <reference path="_all" />
 var app;
 (function (app) {
-    angular.module('todo', [])
+    angular.module('todo', ['ui.router'])
         .controller('ToDoController', app.ToDoController)
         .directive('toDoItem', app.ToDoItem.factory)
-        .service('ToDoService', app.ToDoService);
+        .service('ToDoService', app.ToDoService)
+        .config(app.config);
 })(app || (app = {}));

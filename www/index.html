@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="todo">
 	<head>
 		<title>Angular To-Do</title>
 		
@@ -12,12 +12,7 @@
 		<!-- application -->
 		<script src="app.js"></script>
 	</head>
-	<body ng-app="todo">
-		<section ng-controller="ToDoController as vm">
-			<p>{{ vm.myTestVar }}</p>
-			<ul>
-				<li ng-repeat="item in vm.toDoItems"><to-do-item></to-do-item></li>
-			</ul>
-		</section>
+	<body>
+		<div ui-view></div>
 	</body>
 </html>
