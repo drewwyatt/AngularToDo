@@ -1,9 +1,19 @@
 .todo-item {
 	color: $charcoal-color;
 	padding: 0;
+	width: 100%;
+	margin-bottom: 10px;
 	
 	.delete-button {
 		visibility: hidden;
+		-webkit-appearance: none;
+		background: $mandy-color;
+		border: none;
+		padding: 5px 10px;
+		outline: 0;
+		color: $white-color;
+		margin-left: 10px;
+		float: right;
 	}
 	
 	&.done {
