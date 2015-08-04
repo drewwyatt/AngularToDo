@@ -1,0 +1,42 @@
+.todo-list {
+	background: $white-color;
+	width: 80%;
+	margin: 20px auto;
+	max-width: 600px;
+    box-shadow: 5px 5px 5px $charcoal-color;
+	
+	.new-todo {
+		padding: 10px;
+	}
+	
+	.new-todo-field-wrapper {
+		width: auto;
+		height: 31px;
+		background: $white-color;
+		overflow: hidden;
+		padding: 0 10px;
+		margin: 0;
+		///border-bottom: 1px solid $charcoal-color;
+	}
+	
+	.new-todo-field {
+		background: $white-color;
+		border: none;
+		border-bottom: 1px solid $charcoal-color;
+		padding: 0;
+		outline: 0;
+		height: 30px;
+		font-size: 1em;
+		width: 100%;
+		//width: 60%;
+	}
+	
+	.new-todo-button {
+		-webkit-appearance: none;
+		background: $picton-blue-color;
+		border: none;
+		width: 100px;
+		height: 30px;
+		float:right;
+	}
+}

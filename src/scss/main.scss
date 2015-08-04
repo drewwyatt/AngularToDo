@@ -1,2 +1,6 @@
+@import 'utils/variables';
+
 @import 'base/base';
-@import 'components/todo-item';
+
+@import 'components/todo-list',
+		'components/todo-item';

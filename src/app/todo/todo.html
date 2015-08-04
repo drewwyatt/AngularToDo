@@ -1,7 +1,13 @@
 <section ng-controller="ToDoController as vm">
-	<input type="text" ng-model="vm.newToDoText" />
-	<button ng-click="vm.addNewToDo()">Add</button>
-	<ul>
-		<li ng-repeat="item in vm.toDoItems"><to-do-item item="item" delete="vm.deleteToDo"></to-do-item></li>
-	</ul>
+	<div class="todo-list">
+		<div class="new-todo">
+			<button ng-click="vm.addNewToDo()" class="new-todo-button">Add</button>
+			<div class="new-todo-field-wrapper">
+				<input type="text" ng-model="vm.newToDoText" class="new-todo-field" placeholder="I need to..." />
+			</div>
+		</div>
+		<ul class="todo-list-items">
+			<to-do-item item="item" ng-repeat="item in vm.toDoItems"></to-do-item>
+		</ul>
+	</div>
 </section>
