@@ -6,7 +6,7 @@
     box-shadow: 5px 5px 5px $charcoal-color;
 	
 	.new-todo {
-		padding: 10px;
+		padding: 10px 10px 0 10px;
 	}
 	
 	.new-todo-field-wrapper {
@@ -16,7 +16,6 @@
 		overflow: hidden;
 		padding: 0 10px;
 		margin: 0;
-		///border-bottom: 1px solid $charcoal-color;
 	}
 	
 	.new-todo-field {
@@ -24,11 +23,12 @@
 		border: none;
 		border-bottom: 1px solid $charcoal-color;
 		padding: 0;
+		padding-left: 10px;
 		outline: 0;
 		height: 30px;
 		font-size: 1em;
-		width: 100%;
-		//width: 60%;
+		width: 95%;
+		float: left;
 	}
 	
 	.new-todo-button {
@@ -38,5 +38,12 @@
 		width: 100px;
 		height: 30px;
 		float:right;
+		outline: 0;
+	}
+	
+	.todo-list-items {
+		list-style: none;
+		padding: 20px;
+		margin-top: 0;
 	}
 }
